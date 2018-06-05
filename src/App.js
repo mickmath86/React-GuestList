@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+
 import './App.css';
-import GuestList from './GuestList.js'
-import Counter from './Counter.js';
+import Header from './Header';
+import MainContent from './MainContent';
+
 
 class App extends Component {
 
@@ -122,33 +124,17 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <h1>GuestList</h1>
-          <p className="m-3">React JS Demo App</p>
-          <form onSubmit={this.newGuestSubmitHandler}>
-              <input   onChange={this.handleNameInput} type="text" value={this.state.pendingGuest} placeholder="Invite Someone" />
-              <button type="submit" name="submit" value="submit">Submit</button>
-          </form>
-        </header>
-        <div className="main">
-          <div>
-            <h2>Invitees</h2>
-            <label>
-              <input
-                type="checkbox"
-                onChange={this.toggleFilter}
-                checked={this.state.isFiltered}
-              /> "Hide those who haven't responded"
-            </label>
-          </div>
-          <Counter
+        <Header
+          pendingGuest={this.state.pendingGuest}
+          newGuestSubmitHandler={this.newGuestSubmitHandler}
+          handleNameInput={this.handleNameInput}
+        />
+
+          <MainContent
+            toggleFilter={this.toggleFilter}
             totalInvited={totalInvited}
             numberAttending={numberAttending}
             numberUnconfirmed={numberUnconfirmed}
-            />
-
-          <GuestList
-
             pendingGuest={this.state.pendingGuest}
             removeGuestAt={this.removeGuestAt}
             toggleEditingAt={this.toggleEditingAt}
@@ -157,7 +143,7 @@ class App extends Component {
             setNameAt={this.setNameAt}
             isFiltered={this.state.isFiltered}/>
         </div>
-      </div>
+
     );
   }
 }

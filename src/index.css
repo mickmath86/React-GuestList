@@ -24,6 +24,12 @@ body {
   box-shadow: 0 0 26px rgba(0, 0, 0, .13);
 }
 
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+
 h1,
 p,
 form button {
@@ -307,4 +313,9 @@ td:last-child {
     -ms-flex-preferred-size: 20%;
     flex-basis: 20%;
   }
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
